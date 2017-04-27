@@ -1,13 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import reducers from './reducers';
+import Counter from './containers/counter';
+import Controls from './containers/controls';
+// import App from './components/app';
 import './style.scss';
+
+// this creates the store with the reducers, and does some other stuff to initialize devtools
+const store = createStore(reducers, {}, compose(
+  applyMiddleware(),
+  window.devToolsExtension ? window.devToolsExtension() : f => f,
+));
 
 const About = (props) => {
   return <div> All there is to know about me </div>;
 };
 const Welcome = (props) => {
-  return <div>Welcome</div>;
+  return (<div>
+    <Counter />
+    <Controls />
+            Welcome
+        </div>);
 };
 
 const Test = (props) => {
@@ -48,4 +64,7 @@ const App = (props) => {
 };
 
 
-ReactDOM.render(<App />, document.getElementById('main'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>, document.getElementById('main'));
