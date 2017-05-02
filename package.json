@@ -1,5 +1,5 @@
 {
-  "name": "(lab3-AndrewOgren)",
+  "name": "(lab4-AndrewOgren)",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -9,18 +9,18 @@
     "build": "WEBPACK_ENV=production webpack --colors",
     "clean": "rimraf public/build",
     "deploy": "npm run build; gh-pages -d public; npm run clean",
-    "surge": "npm run build; surge -p public -d starterpack-andrewogren.surge.sh; npm run clean"
+    "surge": "npm run build; surge -p public -d starterpack-ogrenblogs.surge.sh; npm run clean"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dartmouth-cs52-17S/lab3-AndrewOgren.git"
+    "url": "git+https://github.com/dartmouth-cs52-17S/lab4-AndrewOgren.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dartmouth-cs52-17S/lab3-AndrewOgren/issues"
+    "url": "https://github.com/dartmouth-cs52-17S/lab4-AndrewOgren/issues"
   },
-  "homepage": "https://github.com/dartmouth-cs52-17S/lab3-AndrewOgren#readme",
+  "homepage": "https://github.com/dartmouth-cs52-17S/lab4-AndrewOgren#readme",
   "devDependencies": {
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.24.1",
@@ -49,11 +49,13 @@
     "immutable": "^3.8.1",
     "jquery": "^3.2.1",
     "lodash.debounce": "^4.0.8",
+    "marked": "^0.3.6",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
+    "react-textarea-autosize": "^4.2.2",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0"
   }
