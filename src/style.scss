@@ -58,6 +58,7 @@ body {
   border: 1px solid black;
   background-color: $offWhite;
   min-width: 100px;
+  max-width: 600px;
   min-height: 100px;
 }
 
@@ -74,7 +75,8 @@ body {
 }
 
 .single_image {
-
+  width: 100%;
+  min-height: 20px;
 }
 
 .single_content {
@@ -222,4 +224,13 @@ body {
   font-size: 40px;
   font-weight: bold;
   color: $pink;
+}
+
+#warningIcon {
+  color: yellow;
+}
+
+#alertText {
+  font-size: 14px;
+  color: $offWhite;
 }
