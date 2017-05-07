@@ -7,3 +7,6 @@ in the main index.js file, since they're very small dumb components with no stat
 I needed to devise a way to make sure to know which part of the post was being edited, and I had to save the new information when the user was
 done editing.
 
+## Extra Credit
+I added input validation. I check to make sure each input is filled out, and if one of them is not filled out, I display an appropriate error message. I installed react-alert, which provides "toasts" like on an Android phone. Then I further styled those toasts. 
+
