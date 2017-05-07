@@ -3,18 +3,13 @@ import axios from 'axios';
 export const ActionTypes = {
   FETCH_POSTS: 'FETCH_POSTS',
   FETCH_POST: 'FETCH_POST',
-  CREATE_POST: 'CREATE_POST',
-  // UPDATE_POST: 'UPDATE_POST',
-  // DELETE_POST: 'DELETE_POST',
 };
 
-const ROOT_URL = 'https://cs52-blog.herokuapp.com/api';
-const API_KEY = '?key=a_ogren';
-
+const ROOT_URL = 'https://ogren-blog.herokuapp.com/api';
 
 export function fetchPosts() {
   return (dispatch) => {
-    axios.get(`${ROOT_URL}/posts${API_KEY}`).then((response) => {
+    axios.get(`${ROOT_URL}/posts`).then((response) => {
       console.log('the response': response);
       dispatch({ type: 'FETCH_POSTS', payload: { posts: response } });
     }).catch((error) => {
@@ -24,9 +19,9 @@ export function fetchPosts() {
 }
 
 export function fetchPost(id) {
-  console.log(`${ROOT_URL}/posts/${id}${API_KEY}`);
+  console.log(`${ROOT_URL}/posts/${id}`);
   return (dispatch) => {
-    axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`).then((response) => {
+    axios.get(`${ROOT_URL}/posts/${id}`).then((response) => {
       console.log('the response');
       console.log(response);
       dispatch({ type: 'FETCH_POST', payload: { post: response } });
@@ -38,7 +33,7 @@ export function fetchPost(id) {
 
 export function createPost(post, history) {
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/posts${API_KEY}`, post).then((response) => {
+    axios.post(`${ROOT_URL}/posts`, post).then((response) => {
       console.log('success');
       history.push('/');
     }).catch((error) => {
@@ -49,7 +44,7 @@ export function createPost(post, history) {
 
 export function updatePost(post) {
   return (dispatch) => {
-    axios.put(`${ROOT_URL}/posts/${post._id}${API_KEY}`, {
+    axios.put(`${ROOT_URL}/posts/${post._id}`, {
       title: post.title,
       tags: post.tags,
       content: post.content,
@@ -63,7 +58,7 @@ export function updatePost(post) {
 
 export function deletePost(id, history) {
   return (dispatch) => {
-    axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`).then((response) => {
+    axios.delete(`${ROOT_URL}/posts/${id}`).then((response) => {
       console.log('success');
       history.push('/');
     }).catch((error) => {
