@@ -12,6 +12,7 @@ class NewPost extends Component {
       tags: '',
       content: '',
       cover_url: '',
+      comments: [],
     };
 
     this.alertOptions = {

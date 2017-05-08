@@ -32,6 +32,7 @@ export function fetchPost(id) {
 }
 
 export function createPost(post, history) {
+  console.log(post);
   return (dispatch) => {
     axios.post(`${ROOT_URL}/posts`, post).then((response) => {
       console.log('success');
@@ -42,14 +43,16 @@ export function createPost(post, history) {
   };
 }
 
-export function updatePost(post) {
+export function updatePost(post, history) {
   return (dispatch) => {
     axios.put(`${ROOT_URL}/posts/${post._id}`, {
       title: post.title,
       tags: post.tags,
       content: post.content,
-      cover_url: post.cover_url }).then((response) => {
+      cover_url: post.cover_url,
+      comments: post.comments }).then((response) => {
         console.log(response);
+        history.push(`/post/:${post._id}`);
       }).catch((error) => {
         console.log('failure');
       });

@@ -14,11 +14,14 @@ class Post extends Component {
       editingContent: false,
       editingTags: false,
       currentContent: '',
+      currentComment: '',
     };
     this.handleClick = this.handleClick.bind(this);
     this.renderEditing = this.renderEditing.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.doneEditing = this.doneEditing.bind(this);
+    this.onCommentChange = this.onCommentChange.bind(this);
+    this.addComment = this.addComment.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +35,20 @@ class Post extends Component {
     this.setState({
       currentContent: event.target.value,
     });
+  }
+
+  onCommentChange(event) {
+    console.log(event.target.value);
+    this.setState({
+      currentComment: event.target.value,
+    });
+  }
+
+  addComment() {
+    console.log('adding comment');
+    const singlePost = (this.props.posts.post);
+    singlePost.comments.push(this.state.currentComment);
+    this.props.updatePost(singlePost, this.props.history);
   }
 
   handleClick(id) {
@@ -108,7 +125,7 @@ class Post extends Component {
       });
     }
     console.log(singlePost);
-    this.props.updatePost(singlePost);
+    this.props.updatePost(singlePost, this.props.history);
   }
 
   renderEditing(type) {
@@ -169,6 +186,15 @@ class Post extends Component {
   render() {
     const id = this.props.match.params.postID;
     const rightId = id.substring(1, id.length);
+    const singlePost = this.props.posts.post;
+    let c = null;
+    if (singlePost.comments) {
+      c = singlePost.comments.map((comment) => {
+        return (<li key={comment} className="commentItem" dangerouslySetInnerHTML={{ __html: marked(comment || '') }} />);
+      });
+    }
+    console.log(c);
+
     return (
       <nav>
         <ul className="postNavContainer">
@@ -181,6 +207,13 @@ class Post extends Component {
             {this.renderEditing('title')}
             {this.renderEditing('content')}
             {this.renderEditing('tags')}
+            <ul className="commentContainer">
+              {c}
+            </ul>
+            <div className="addCommentContainer">
+              <Textarea id="commentInput" onChange={this.onCommentChange} placeholder="Add Comment" value={this.state.currentComment} />
+              <input id="commentBtn" onClick={this.addComment} type="button" value="Comment" />
+            </div>
           </div>
         </div>
       </nav>

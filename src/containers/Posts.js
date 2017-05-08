@@ -15,8 +15,9 @@ class Posts extends Component {
   render() {
     console.log(this.props.posts.all);
     const Pat = this.props.posts.all.map((post) => {
-      const postLink = `/post/:${post.id}`;
       /* eslint-disable react/no-danger */
+      const postLink = `/post/:${post.id}`;
+
       return (
         <NavLink className="navLink" to={postLink} key={post.id}>
           <div className="postItem">

@@ -38,11 +38,59 @@ body {
   text-shadow: none;
 }
 
+#commentBtn {
+  align-self: center;
+  width: 75px;
+  height: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: $blue;
+  border-radius: 4px;
+  color: $offWhite;
+  text-shadow: none;
+}
+
+#commentInput {
+  align-self: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  font-size: 16px;
+  width: 200px;
+  min-height: 30px;
+  max-height: 30px;
+  border-radius: 4px;
+}
+
 .textArea {
   font-size: 25px;
   width: 100%;
   margin: 0px;
   padding: 0px;
+}
+
+.addCommentContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
+}
+
+.commentContainer {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  list-style: none;
+  border-top: 1px solid black;
+  margin: 0px;
+  padding: 0px;
+}
+
+.commentItem {
+  display: flex;
+  margin: 5px 20px 5px 20px;
+  padding: 0px;
+  height: 30px;
 }
 
 .singlePostContainer {
@@ -57,7 +105,7 @@ body {
   justify-content: space-between;
   border: 1px solid black;
   background-color: $offWhite;
-  min-width: 100px;
+  min-width: 300px;
   max-width: 600px;
   min-height: 100px;
 }
@@ -70,7 +118,7 @@ body {
 .single_title {
   font-size: 30px;
   font-weight: bolder;
-  margin: 10px;
+  margin: 5px 20px 5px 20px;
   min-height: 20px;
 }
 
@@ -81,13 +129,13 @@ body {
 
 .single_content {
   font-size: 20px;
-  margin: 10px;
+  margin: 5px 20px 5px 20px;
   min-height: 20px;
 }
 
 .single_tags {
   font-size: 14px;
-  margin:10px;
+  margin: 5px 20px 5px 20px;
   font-style: italic;
   color: rgb(79, 79, 79);
   min-height: 20px;
