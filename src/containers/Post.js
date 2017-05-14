@@ -47,7 +47,7 @@ class Post extends Component {
   addComment() {
     console.log('adding comment');
     const singlePost = (this.props.posts.post);
-    singlePost.comments.push(this.state.currentComment);
+    singlePost.comments.push(`${this.state.currentComment} -${singlePost.username}`);
     this.props.updatePost(singlePost, this.props.history);
   }
 
@@ -205,6 +205,7 @@ class Post extends Component {
           <div className="singlePostItem">
             {this.renderEditing('cover_url')}
             {this.renderEditing('title')}
+            <div className="single_username" dangerouslySetInnerHTML={{ __html: marked(`By: ${singlePost.username}` || '') }} />
             {this.renderEditing('content')}
             {this.renderEditing('tags')}
             <ul className="commentContainer">

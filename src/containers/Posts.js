@@ -25,6 +25,7 @@ class Posts extends Component {
               <img className="image" alt="" src={post.cover_url} />
             </div>
             <div dangerouslySetInnerHTML={{ __html: marked(post.title || '') }} className="title" />
+            <div dangerouslySetInnerHTML={{ __html: marked(`By: ${post.username}` || '') }} className="title" />
             <div dangerouslySetInnerHTML={{ __html: marked(post.tags || '') }} className="tags" />
           </div>
         </NavLink>
